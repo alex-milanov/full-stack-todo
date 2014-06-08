@@ -1,4 +1,6 @@
 "use strict"
 
-var app = angular.module('scotchTodo', []);
+var app = angular.module('scotchTodo', [
+	'ngResource'
+]);
 

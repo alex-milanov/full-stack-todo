@@ -1,41 +1,37 @@
 "use strict"
 
-app.controller("todos", function($scope, $http) {
-	$scope.formData = {};
+app.controller("todos", ["$scope", "$http", "Todo", function($scope, $http, Todo) {
+	
+	$scope.todo = {};
 
 	// when landing on the page, get all todos and show them
-	$http.get('/api/todos')
-		.success(function(data) {
+	
+	$scope.todos = [];
+
+	$scope.load = function(){
+		Todo.query().$promise.then(function(data){
 			$scope.todos = data;
-			console.log(data);
-		})
-		.error(function(data) {
-			console.log('Error: ' + data);
 		});
+	}
 
-	// when submitting the add form, send the text to the node API
-	$scope.createTodo = function() {
-		$http.post('/api/todos', $scope.formData)
-			.success(function(data) {
-				$scope.formData = {}; // clear the form so our user is ready to enter another
-				$scope.todos = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-	};
+	$scope.load();
 
-	// delete a todo after checking it
-	$scope.deleteTodo = function(id) {
-		$http.delete('/api/todos/' + id)
-			.success(function(data) {
-				$scope.todos = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-	};
 
-});
+	$scope.save = function(){
+		if($scope.todo._id){
+			Todo.update({_id:$scope.todo._id}, $scope.todo).$promise.then($scope.load)
+			//$scope.event.$save().then($scope.load);
+		} else {
+			var todo = $scope.todo;
+			Todo.post(todo).$promise.then($scope.load);
+		}
+
+		$scope.todo = new Todo();
+	}
+
+
+	$scope.delete = function(todo){
+		Todo.delete(todo).$promise.then($scope.load);
+	}
+
+}]);

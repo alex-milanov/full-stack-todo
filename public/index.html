@@ -30,10 +30,10 @@
 			<div class="col-sm-4 col-sm-offset-4">
 
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
-				<div class="checkbox" ng-repeat="todo in todos">
+				<div class="checkbox" ng-repeat="document in todos">
 					<label>
-						{{ todo.name }}: {{ todo.text }} 
-						<button class="btn btn-danger btn-xs fa fa-trash-o" style="float: right;" ng-click="deleteTodo(todo._id)"></button>
+						{{ document.name }}: {{ document.text }} 
+						<button class="btn btn-danger btn-xs fa fa-trash-o" style="float: right;" ng-click="delete(document)"></button>
 					</label>
 				</div>
 
@@ -47,12 +47,12 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" ng-model="formData.name" placeholder="Your Name "/>
-						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" ng-model="todo.name" placeholder="Your Name "/>
+						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="todo.text">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="save()">Add</button>
 				</form>
 			</div>
 		</div>
@@ -64,11 +64,13 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!-- Angural -->
 	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-resource/angular-resource.js"></script>
 
 
 	<!-- App -->
 	<script src="js/app.js"></script>
 	<script src="js/controllers/todos.js"></script>
+	<script src="js/services/todo.js"></script>
 
 
 </body>

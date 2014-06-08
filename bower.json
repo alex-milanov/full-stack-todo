@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "latest",
     "angular": "latest",
+    "angular-ui-router" : "latest",
+    "angular-resource": "latest",
     "bootstrap": "latest",
     "font-awesome": "~4.1.0"
   }

@@ -30,7 +30,7 @@
 			Todo.find(function(err, todos) {
 				if (err)
 					res.send(err)
-				res.json(todos);
+				res.json(Todo);
 			});
 		});
 
@@ -47,7 +47,7 @@
 			Todo.find(function(err, todos) {
 				if (err)
 					res.send(err)
-				res.json(todos);
+				res.json(Todo);
 			});
 		});
 	}

@@ -20,6 +20,7 @@
 		// create a todo, information comes from AJAX request from Angular
 		Todo.create({
 			text : req.body.text,
+			name : req.body.name,
 			done : false
 		}, function(err, todo) {
 			if (err)

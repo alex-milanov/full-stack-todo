@@ -10,18 +10,9 @@
 
 	<title>Node/Angular Todo App</title>
 
-	<!-- SCROLLS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
-	<style>
-		html 					{ overflow-y:scroll; }
-		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; }
-	</style>
-
-	<!-- SPELLS -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
-	<script src="core.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="css/main.css">
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
@@ -40,7 +31,7 @@
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+						{{ todo.name }}: {{ todo.text }}
 					</label>
 				</div>
 
@@ -54,6 +45,7 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" ng-model="formData.name" placeholder="Your Name "/>
 						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
 					</div>
 
@@ -64,6 +56,17 @@
 		</div>
 
 	</div>
+
+	<!-- Libs -->
+	<script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Angural -->
+	<script src="lib/angular/angular.js"></script>
+
+
+	<!-- App -->
+	<script src="core.js"></script>
+
 
 </body>
 </html>

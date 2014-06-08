@@ -1,0 +1,9 @@
+{
+    "name"         : "node-todo",
+    "version"      : "0.0.0",
+    "dependencies" : {
+      "jquery"      : "latest",
+      "angular"     : "latest",
+      "bootstrap"   : "latest"
+    }
+  }

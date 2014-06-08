@@ -1,6 +1,7 @@
 "use strict"
 
 var app = angular.module('scotchTodo', [
-	'ngResource'
+	'ngResource',
+  	'btford.socket-io'
 ]);
 

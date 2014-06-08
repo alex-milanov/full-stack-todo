@@ -25,6 +25,8 @@
 			<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
 		</div>
 
+		<p>{{ time }}</p>
+
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
 			<div class="col-sm-4 col-sm-offset-4">
@@ -62,9 +64,13 @@
 	<!-- Libs -->
 	<script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    
 	<!-- Angural -->
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-resource/angular-resource.js"></script>
+	<script src="lib/angular-socket-io/socket.js"></script>
 
 
 	<!-- App -->

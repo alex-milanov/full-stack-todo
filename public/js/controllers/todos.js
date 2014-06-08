@@ -1,6 +1,12 @@
 "use strict"
 
-app.controller("todos", ["$scope", "$http", "Todo", function($scope, $http, Todo) {
+app.factory('socket', function (socketFactory) {
+    return socketFactory();
+  }).
+  value('version', '0.1');
+
+
+app.controller("todos", ["$scope", "$http", "Todo", "socket", function($scope, $http, Todo, socket) {
 	
 	$scope.todo = {};
 
@@ -23,7 +29,7 @@ app.controller("todos", ["$scope", "$http", "Todo", function($scope, $http, Todo
 			//$scope.event.$save().then($scope.load);
 		} else {
 			var todo = $scope.todo;
-			Todo.post(todo).$promise.then($scope.load);
+			Todo.create(todo).$promise.then($scope.load);
 		}
 
 		$scope.todo = new Todo();
@@ -33,5 +39,13 @@ app.controller("todos", ["$scope", "$http", "Todo", function($scope, $http, Todo
 	$scope.delete = function(todo){
 		Todo.delete(todo).$promise.then($scope.load);
 	}
+
+	socket.on('send:time', function (data) {
+    	$scope.time = data.time;
+    });
+
+    socket.on('send:msg', function (data) {
+    	$scope.load();
+    });
 
 }]);

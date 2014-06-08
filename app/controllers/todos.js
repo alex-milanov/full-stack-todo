@@ -27,11 +27,10 @@
 				res.send(err);
 
 			// get and return all the todos after you create another
-			Todo.find(function(err, todos) {
-				if (err)
-					res.send(err)
-				res.json(Todo);
-			});
+			req.io.sockets.emit('send:msg', {success: true});
+			res.json(Todo);
+			
+			
 		});
 
 	}

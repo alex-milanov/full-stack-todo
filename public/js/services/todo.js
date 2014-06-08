@@ -6,7 +6,7 @@
 			update: {
 				method: 'PUT'
 			},
-			post: {
+			create: {
 				method: 'POST'
 			}
 		});

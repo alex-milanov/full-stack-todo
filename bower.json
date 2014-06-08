@@ -1,9 +1,10 @@
 {
-    "name"         : "node-todo",
-    "version"      : "0.0.0",
-    "dependencies" : {
-      "jquery"      : "latest",
-      "angular"     : "latest",
-      "bootstrap"   : "latest"
-    }
+  "name": "node-todo",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "latest",
+    "angular": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "~4.1.0"
   }
+}
